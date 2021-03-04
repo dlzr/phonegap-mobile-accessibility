@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="phonegap-plugin-mobile-accessibility"
-    version="1.0.5-dev">
+    version="1.0.6-dlzr">
     <name>Mobile Accessibility</name>
     <description>PhoneGap Mobile Accessibility Plugin</description>
     <license>Apache 2.0</license>
@@ -21,7 +21,6 @@
     </js-module>
 
    <dependency id="cordova-plugin-device" url="https://github.com/apache/cordova-plugin-device.git"  />
-   <dependency id="cordova-plugin-network-information" url="https://github.com/apache/cordova-plugin-network-information.git" />
 
     <!-- ios -->
     <platform name="ios">
@@ -38,14 +37,8 @@
     <!-- android -->
     <platform name="android">
         <config-file target="config.xml" parent="/*">
-            <!-- for some reason, these dependant feature tags, Device and NetworkStatus,
-                are not being added to the /res/xml/config.xml when the project is built,
-                so I've added them here to make sure they make it into the build -->
             <feature name="Device">
                 <param name="android-package" value="org.apache.cordova.device.Device" />
-            </feature>
-            <feature name="NetworkStatus">
-                <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager"/>
             </feature>
 
             <access origin="https://ssl.gstatic.com/accessibility/javascript/android/*" />
@@ -59,7 +52,6 @@
         <source-file src="src/android/com/phonegap/plugin/mobileaccessibility/IceCreamSandwichMobileAccessibilityHelper.java" target-dir="src/com/phonegap/plugin/mobileaccessibility" />
         <source-file src="src/android/com/phonegap/plugin/mobileaccessibility/JellyBeanMobileAccessibilityHelper.java" target-dir="src/com/phonegap/plugin/mobileaccessibility" />
         <source-file src="src/android/com/phonegap/plugin/mobileaccessibility/KitKatMobileAccessibilityHelper.java" target-dir="src/com/phonegap/plugin/mobileaccessibility" />
-        <asset src="www/android" target="plugins/com.phonegap.plugin.mobile-accessibility/android" />
     </platform>
 
     <!-- windows -->
